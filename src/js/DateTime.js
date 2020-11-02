@@ -18,7 +18,7 @@ const DateTime = () => {
     const sanitized = (a) => { return (a <= 9) ? "0" + a : a }
 
     return <div className='time'>
-        {sanitized(hour % 12)}:{sanitized(minute)}:{sanitized(second)} {hour >= 12 ? "PM" : "AM"}
+        {sanitized(hour === 12 ? 12 : hour % 12)}:{sanitized(minute)}:{sanitized(second)} {hour >= 12 ? "PM" : "AM"}
     </div>
 }
 export default DateTime
