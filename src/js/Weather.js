@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactWeather from 'react-open-weather';
 
-const Weather = () => {
-    const [flip, setFlip] = useState(true)
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setFlip(!flip)
-        }, 60 * 1000);
-        return () => clearTimeout(timeout)
-    })
-
+const Weather = (props) => {
     return <div className="weather">
         <ReactWeather
+            refreshInterval={60 * 60 * 1000}
             forecast="today"
             apikey="79943603be2e70c145f866196516226b"
             type="city"
-            city="Dallas" />
+            city={props.city} />
     </div>
 }
 export default Weather

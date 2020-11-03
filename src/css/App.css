@@ -2,6 +2,7 @@
     display: grid;
     grid-template-areas:
     'weather time'
+    'greeting greeting'
     'thought thought';
     width: 100vw;
     height: 100vh;
@@ -45,9 +46,21 @@
 }
 
 .thought > span {
-    position: absolute;
-    bottom: 150px;
-    right: 50px;
-    left: 50px;
     white-space: normal;
+}
+
+.morning-weather {
+    margin: auto;
+    position: absolute;
+    width: fit-content;
+    display: table;
+    top: 40%; left: 0; bottom: 40%; right: 0;
+    font-size: 250px;
+    color: white;
+}
+
+.greeting {
+    height: 100%;
+    grid-area: greeting;
+    /* background-color: burlywood; */
 }
