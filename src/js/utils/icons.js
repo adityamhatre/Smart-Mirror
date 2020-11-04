@@ -1,0 +1,21 @@
+const icons = {
+    '01d': 'wicon wi wi-day-sunny',
+    '02d': 'wicon wi wi-day-cloudy',
+    '03d': 'wicon wi wi-cloudy',
+    '04d': 'wicon wi wi-cloudy',
+    '09d': 'wicon wi wi-showers',
+    '10d': 'wicon wi wi-day-rain',
+    '11d': 'wicon wi wi-day-thunderstorm',
+    '13d': 'wicon wi wi-day-snow-thunderstorm',
+    '50d': 'wicon wi wi-fog',
+    '01n': 'wicon wi wi-day-sunny',
+    '02n': 'wicon wi wi-day-cloudy',
+    '03n': 'wicon wi wi-cloudy',
+    '04n': 'wicon wi wi-cloudy',
+    '09n': 'wicon wi wi-showers',
+    '10n': 'wicon wi wi-day-rain',
+    '11n': 'wicon wi wi-day-thunderstorm',
+    '13n': 'wicon wi wi-day-snow-thunderstorm',
+    '50n': 'wicon wi wi-fog',
+}
+export default icons

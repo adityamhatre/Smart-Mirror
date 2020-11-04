@@ -7,11 +7,10 @@ import MorningWeather from './MorningWeather';
 
 const App = () => {
     return <div className="wrapper">
-        <Weather city="Dallas" />
+        <Weather city="Dallas" refreshInterval={60 * 60 * 1000} />
         <DateTime />
         <Thought />
         <MorningWeather city="Dallas" />
-        <div className="greeting"></div>
     </div>
 }
 

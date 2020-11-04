@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { thoughtList } from './utils/Thought'
+import { thoughtList } from './utils/ThoughtList'
 
 const Thought = () => {
-
-    const [thought, setThought] = useState(thoughtList[Math.floor(Math.random() * thoughtList.length)])
 
     const getThought = () => {
         return thoughtList[Math.floor(Math.random() * thoughtList.length)]
     }
 
+    const [thought, setThought] = useState(getThought())
 
     useEffect(() => {
         const interval = setInterval(() => {

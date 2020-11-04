@@ -1,33 +1,42 @@
 import React, { useEffect, useState } from 'react'
+import getCurrentWeather from './api/WeatherApi'
+import _ from 'lodash'
 
 const MorningWeather = (props) => {
-    const [hour, setHour] = useState(new Date().getHours())
-    const [temp, setTemp] = useState(null)
+    const [temp, setTemp] = useState()
+    const [trigger, setTrigger] = useState(true)
+
+    let hour = new Date().getHours()
 
     useEffect(() => {
-        const timed = setInterval(() => {
-            setHour(new Date().getHours())
-            setTemp(null)
-        }, 15 * 1000)
-        return () => clearTimeout(timed)
-    })
+        getCurrentWeather(props.city)
+            // .then(response => {
+            //     if (response.status !== 200) {
+            //         throw Error(response.statusText);
+            //     }
+            //     return response.json()
+            // })
+            .then(responseJson => {
+                let { temp } = _.pick(responseJson.main, ['temp'])
+                setTemp(Math.round(temp))
+            })
+            .catch(err => {
+                console.log(err)
+            })
 
-    if (!(hour >= 6 && hour < 11)) {
+        const timeout = setTimeout(() => {
+            setTrigger(!trigger)
+        }, 15 * 60 * 1000)
+        return () => clearInterval(timeout)
+    }, [trigger, props.city])
+
+
+    if (!(hour >= 6 && hour < 10)) {
         return null
     }
 
-    if (!temp) {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=79943603be2e70c145f866196516226b`
-        fetch(url)
-            .then(data => data.json().then(j => {
-                const t = j.main.temp - 273.15
-                setTemp(Math.round(t))
-            }))
-            .catch(err => console.error(err))
-    }
-
     const renderedTemp = () => {
-        if (!temp) {
+        if (temp === undefined || temp === null) {
             return <span style={{ fontSize: 50 }}>Loading...</span>
         }
         else return <span>{temp}°C</span>
