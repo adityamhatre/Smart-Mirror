@@ -10,12 +10,12 @@ const MorningWeather = (props) => {
 
     useEffect(() => {
         getCurrentWeather(props.city)
-            // .then(response => {
-            //     if (response.status !== 200) {
-            //         throw Error(response.statusText);
-            //     }
-            //     return response.json()
-            // })
+            .then(response => {
+                if (response.status !== 200) {
+                    throw Error(response.statusText);
+                }
+                return response.json()
+            })
             .then(responseJson => {
                 let { temp } = _.pick(responseJson.main, ['temp'])
                 setTemp(Math.round(temp))
