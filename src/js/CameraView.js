@@ -26,7 +26,7 @@ const CameraView = () => {
         } else return null
     }
     return <div id='camera-view' className="camera-view">
-        <video id="video" style={{ WebkitTransform: 'rotateY(180deg)', display: 'none' }} autoPlay />
+        <video id="video" style={{ WebkitTransform: 'rotateY(180deg)', display: 'inline' }} autoPlay />
         {greet()}
     </div>
 }
