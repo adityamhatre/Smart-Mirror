@@ -6,7 +6,7 @@ const CameraView = () => {
     const [people, setPeople] = useState({ names: [] })
 
     useEffect(() => {
-        console.log('lol')
+        alert('Initializing face api')
         const video = document.getElementById('video')
         initFaceApiFor(video)
     }, [])
@@ -15,7 +15,7 @@ const CameraView = () => {
         const i = setInterval(() => {
             const newPeople = getAllPeople()
             setPeople({ names: newPeople })
-        }, 1000)
+        }, 5000)
         return () => clearInterval(i)
     }, [people])
 

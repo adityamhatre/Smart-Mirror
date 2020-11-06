@@ -44,7 +44,7 @@ const loop = (media) => {
         // faceapi.draw.drawDetections(canvas, resizedDetections)
 
         recognizeFaces(faceMatcher, detections)
-    }, 500)
+    }, 5000)
 }
 
 export const initFaceApiFor = video => {
@@ -53,12 +53,13 @@ export const initFaceApiFor = video => {
         faceapi.nets.faceLandmark68TinyNet.loadFromUri('/models'),
         faceapi.nets.faceRecognitionNet.loadFromUri('/models')
     ]).then(() => {
+        alert('Models loaded')
         navigator.getUserMedia(
             { video: true },
             stream => { video.srcObject = stream; },
             err => console.log(err)
         )
+        video.addEventListener('play', () => { loop(video) })
     })
 
-    video.addEventListener('play', () => { loop(video) })
 }
