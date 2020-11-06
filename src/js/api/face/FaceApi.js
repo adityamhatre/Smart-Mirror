@@ -1,5 +1,4 @@
 import * as faceapi from 'face-api.js';
-import { detectFaceLandmarks } from 'face-api.js';
 import _ from 'lodash'
 import { aditya } from '../known-faces-descriptors/aditya';
 
@@ -44,7 +43,7 @@ const loop = (media) => {
         // faceapi.draw.drawDetections(canvas, resizedDetections)
 
         recognizeFaces(faceMatcher, detections)
-    }, 5000)
+    }, 1000)
 }
 
 export const initFaceApiFor = video => {

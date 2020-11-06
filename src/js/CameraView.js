@@ -15,7 +15,7 @@ const CameraView = () => {
         const i = setInterval(() => {
             const newPeople = getAllPeople()
             setPeople({ names: newPeople })
-        }, 5000)
+        }, 1000)
         return () => clearInterval(i)
     }, [people])
 
