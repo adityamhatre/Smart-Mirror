@@ -89,3 +89,22 @@
     font-size: 50px;
     padding-left: 50px;
 }
+
+.camera-view {
+    margin: auto;
+    position: absolute;
+    width: fit-content;
+    top: 40%;
+    left: 0;
+    bottom: 40%;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    display: grid;
+}
+
+.camera-view>div {
+    color: white;
+    font-size: 50px;
+    margin: auto;
+}
