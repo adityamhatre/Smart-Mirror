@@ -89,3 +89,16 @@
     font-size: 50px;
     padding-left: 50px;
 }
+
+.greet {
+    margin: auto;
+    position: absolute;
+    width: fit-content;
+    display: flex;
+    top: 40%;
+    left: 0;
+    bottom: 40%;
+    right: 0;
+    font-size: 250px;
+    color: white;
+}

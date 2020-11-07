@@ -4,6 +4,7 @@ import Weather from './Weather'
 import DateTime from './DateTime';
 import Thought from './Thought';
 import MorningWeather from './MorningWeather';
+import Greet from './Greet';
 
 const App = () => {
     return <div className="wrapper">
@@ -11,6 +12,7 @@ const App = () => {
         <DateTime />
         <Thought />
         <MorningWeather city="Dallas" />
+        <Greet />
     </div>
 }
 
