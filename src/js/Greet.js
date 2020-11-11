@@ -27,7 +27,7 @@ const Greet = () => {
         if (_.isEmpty(names.names)) {
             return null
         }
-        return <span>Hello {names.names.join(',')}!</span>
+        return <span>Hello {names.names.join(', ')}!</span>
     }
     return <div className='greet'>
         {greet()}

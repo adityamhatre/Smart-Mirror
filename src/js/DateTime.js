@@ -15,10 +15,6 @@ const DateTime = () => {
 
     const sanitized = a => { return (a <= 9) ? "0" + a : a }
 
-    // return <div className='time'>
-    //     {sanitized(hour === 12 || hour === 0 ? 12 : hour % 12)}:{sanitized(minute)}:{sanitized(second)} {hour >= 12 ? "PM" : "AM"}
-    // </div>
-
     const monthName = monthNumber => {
         switch (monthNumber) {
             case 1: return 'January'
@@ -59,11 +55,12 @@ const DateTime = () => {
             <div className='am-pm'>
                 {hour >= 12 ? "PM" : "AM"}
             </div>
-            <div className='day'>
+            <div className='date'>
                 {dayName(1+new Date().getDay())}
             </div>
-            <div className='date'>
-                {monthName(1 + new Date().getMonth())} {new Date().getDate()}
+            <div className='day'>
+                {/* {monthName(1 + new Date().getMonth())} {new Date().getDate()} */}
+                {(1 + new Date().getMonth())}/{new Date().getDate()}
             </div>
 
         </div>
