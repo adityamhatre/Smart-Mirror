@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 
 
 const DateTime = () => {
-    const hour = new Date().getHours()
-    const minute = new Date().getMinutes()
-    const second = new Date().getSeconds()
+    const now = new Date()
+    const hour = now.getHours()
+    const minute = now.getMinutes()
+    const second = now.getSeconds()
 
     const [trigger, setTrigger] = useState(true)
 
@@ -55,12 +56,11 @@ const DateTime = () => {
             <div className='am-pm'>
                 {hour >= 12 ? "PM" : "AM"}
             </div>
-            <div className='date'>
-                {dayName(1+new Date().getDay())}
-            </div>
             <div className='day'>
-                {/* {monthName(1 + new Date().getMonth())} {new Date().getDate()} */}
-                {(1 + new Date().getMonth())}/{new Date().getDate()}
+                {dayName(1 + now.getDay())}
+            </div>
+            <div className='date'>
+                {monthName(1 + now.getMonth())} {now.getDate()}
             </div>
 
         </div>
