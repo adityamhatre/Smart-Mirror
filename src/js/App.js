@@ -1,4 +1,4 @@
-import '../css/App.css'
+import '../css/App.scss'
 import React from 'react';
 import Weather from './Weather'
 import DateTime from './DateTime';
