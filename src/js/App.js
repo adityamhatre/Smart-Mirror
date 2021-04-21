@@ -1,10 +1,11 @@
-import '../css/App.css'
+import '../css/App.scss'
 import React from 'react';
 import Weather from './Weather'
 import DateTime from './DateTime';
 import Thought from './Thought';
 import MorningWeather from './MorningWeather';
 import Greet from './Greet';
+import AudioVisualizer from './AudioVisualizer';
 
 const App = () => {
     return <div className="wrapper">
@@ -12,7 +13,8 @@ const App = () => {
         <DateTime />
         <Thought />
         <MorningWeather city="Dallas" />
-        <Greet />
+        <Greet useFaceApi={false} />
+        <AudioVisualizer />
     </div>
 }
 
