@@ -4,16 +4,16 @@ const AudioVisualizer = (props) => {
     const [status, setStatus] = useState(false)
 
     useEffect(() => {
-        const wsClient = new WebSocket("ws://localhost:8000")
+        const wsClient = new WebSocket('ws://localhost:8000')
         wsClient.onopen = () => wsClient.send('Hello from client')
         wsClient.onclose = () => wsClient.close(1000)
         wsClient.onmessage = (msg) => setStatus(JSON.parse(msg.data).speakerPlaying)
         return () => wsClient.close(1000)
     }, [])
 
-    return <div className="audio-visualizer">
+    return <div className='audio-visualizer'>
         <div>
-            {status}
+            {status ? 'Audio playing' : 'Audio not playing'}
         </div>
     </div>
 }
