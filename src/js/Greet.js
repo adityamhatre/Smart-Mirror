@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react'
 import _ from 'lodash'
 import detectFaces from './utils/CameraServer'
 
-const Greet = () => {
+const Greet = ({ useFaceApi }) => {
     const [names, setNames] = useState({})
     useEffect(() => {
+        if (!useFaceApi) return
+        
         setInterval(() => detectFaces()
             .then(response => { return response.json() })
             .then(response => { setNames(response) })
             .catch(err => console.error(err))
             , 500)
-    }, [])
+    }, [useFaceApi])
 
     const greet = () => {
         if (_.isEmpty(names.names)) {

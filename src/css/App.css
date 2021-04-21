@@ -56,6 +56,19 @@
      color: white;
  }
 
+ .audio-visualizer {
+     margin: auto;
+     position: absolute;
+     width: fit-content;
+     display: table;
+     top: 40%;
+     left: 0;
+     bottom: 40%;
+     right: 0;
+     font-size: 350px;
+     color: white;
+ }
+
  .time-subgrid {
      display: grid;
      grid-template-columns: auto auto;
