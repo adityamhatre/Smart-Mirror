@@ -6,6 +6,7 @@ import Thought from './Thought';
 import MorningWeather from './MorningWeather';
 import Greet from './Greet';
 import AudioVisualizer from './AudioVisualizer';
+import TestComponent from '@components/TestComponent';
 
 const App = () => {
     return <div className="wrapper">
@@ -15,6 +16,7 @@ const App = () => {
         <MorningWeather city="Dallas" />
         <Greet useFaceApi={false} />
         <AudioVisualizer />
+        <TestComponent />
     </div>
 }
 
