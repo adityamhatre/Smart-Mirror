@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import getCurrentWeather from './api/WeatherApi';
 import _ from 'lodash'
 import icons from './utils/icons';
+import { Connection } from './Connection';
 
 const Weather = (props) => {
     const [weatherInfo, setWeatherInfo] = useState({})
@@ -46,12 +47,22 @@ const Weather = (props) => {
         return () => clearTimeout(timeout)
     })
 
+    useEffect(() => {
+        const timeout = setTimeout(() => setTrigger(!trigger), props.refreshInterval)
+        return () => clearTimeout(timeout)
+    })
+
     if (_.isEmpty(weatherInfo)) {
         return null;
     }
 
     return <div className="weather">
-        <div style={{ fontSize: 96 }}>{props.city}</div>
+        <div style={{
+            fontSize: 96,
+            gap: '1rem',
+            display: 'flex',
+            alignItems: 'center'
+        }}>{props.city} <Connection></Connection></div>
         <div>{_.get(weatherInfo, 'temp')} °C</div>
         <div>{_.get(weatherInfo, 'minTemp')} / {_.get(weatherInfo, 'maxTemp')} °C</div>
         <div className={icons[_.get(weatherInfo, 'icon')]}>
